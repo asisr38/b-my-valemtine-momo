@@ -1,4 +1,7 @@
-import loveGif from '../assets/Farting I Love You GIF.gif'
+import { LOVE_GIF, PHOTO_ASSETS } from '../assets/media'
+import PhotoCollage from './PhotoCollage'
+
+const CELEBRATION_PHOTOS = PHOTO_ASSETS
 
 export default function Celebration({ name }) {
   return (
@@ -7,13 +10,13 @@ export default function Celebration({ name }) {
         Valentine accepted
       </p>
       <h2
-        className="reveal mt-6 text-4xl font-bold text-berry sm:text-5xl"
+        className="reveal mt-5 text-3xl font-bold text-berry sm:mt-6 sm:text-5xl"
         style={{ animationDelay: '0.12s' }}
       >
         YAYYY <span aria-hidden="true">💖</span>
       </h2>
       <p
-        className="reveal mx-auto mt-4 max-w-md text-base text-berry/90 sm:text-lg"
+        className="reveal mx-auto mt-4 max-w-sm text-base text-berry/90 sm:max-w-md sm:text-lg"
         style={{ animationDelay: '0.18s' }}
       >
         You just made me the happiest person alive,
@@ -26,7 +29,7 @@ export default function Celebration({ name }) {
         Happy Valentine&apos;s Day <span aria-hidden="true">🌹</span>
       </p>
       <div
-        className="reveal mx-auto mt-6 max-w-md rounded-2xl border border-white/70 bg-white/80 p-4 text-sm text-berry/90 shadow-lg sm:p-6 sm:text-base"
+        className="reveal mx-auto mt-6 max-w-sm rounded-2xl border border-white/70 bg-white/80 p-4 text-sm text-berry/90 shadow-lg sm:max-w-md sm:p-6 sm:text-base"
         style={{ animationDelay: '0.3s' }}
       >
         <p>
@@ -38,16 +41,23 @@ export default function Celebration({ name }) {
           you, every single day.
         </p>
       </div>
-      <img
-        className="reveal mx-auto mt-6 w-56 rounded-3xl border border-white/70 shadow-lg sm:w-64"
-        style={{ animationDelay: '0.36s' }}
-        src={loveGif}
-        alt="Playful I love you gif"
-        loading="lazy"
-      />
+      {CELEBRATION_PHOTOS.length > 0 && (
+        <div className="reveal mt-6" style={{ animationDelay: '0.36s' }}>
+          <PhotoCollage photos={CELEBRATION_PHOTOS} variant="celebration" />
+        </div>
+      )}
+      {LOVE_GIF && (
+        <img
+          className="reveal mx-auto mt-6 w-48 rounded-3xl border border-white/70 shadow-lg sm:w-64"
+          style={{ animationDelay: '0.42s' }}
+          src={LOVE_GIF}
+          alt="Playful I love you gif"
+          loading="lazy"
+        />
+      )}
       <div
         className="reveal mt-6 flex items-center justify-center"
-        style={{ animationDelay: '0.42s' }}
+        style={{ animationDelay: '0.48s' }}
       >
         <span className="pill">Forever yours</span>
       </div>
